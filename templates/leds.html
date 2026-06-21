@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="refresh" content="2">
+
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+td {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    background-color: gray;
+}
+
+/* LED encendido */
+#activo {
+    background-color: green;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Matriz 4x4 LED</h1>
+
+<h2>Luis Alberto Viscarra Hellie</h2>
+
+<p>
+Esta matriz representa la posición X-Y en una cuadrícula de 4x4.
+Dependiendo de los valores recibidos desde el celular, se enciende
+un LED indicando la ubicación en el plano.
+</p>
+
+<p>X = {{ ejeX }}</p>
+<p>Y = {{ ejeY }}</p>
+
+<table>
+
+<tr>
+<td id="{% if ejeX < -1 and ejeY > 1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= -1 and ejeX < 0 and ejeY > 1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 0 and ejeX < 1 and ejeY > 1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 1 and ejeY > 1 %}activo{% endif %}"></td>
+</tr>
+
+<tr>
+<td id="{% if ejeX < -1 and ejeY > 0 and ejeY <= 1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= -1 and ejeX < 0 and ejeY > 0 and ejeY <= 1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 0 and ejeX < 1 and ejeY > 0 and ejeY <= 1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 1 and ejeY > 0 and ejeY <= 1 %}activo{% endif %}"></td>
+</tr>
+
+<tr>
+<td id="{% if ejeX < -1 and ejeY >= -1 and ejeY <= 0 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= -1 and ejeX < 0 and ejeY >= -1 and ejeY <= 0 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 0 and ejeX < 1 and ejeY >= -1 and ejeY <= 0 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 1 and ejeY >= -1 and ejeY <= 0 %}activo{% endif %}"></td>
+</tr>
+
+<tr>
+<td id="{% if ejeX < -1 and ejeY < -1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= -1 and ejeX < 0 and ejeY < -1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 0 and ejeX < 1 and ejeY < -1 %}activo{% endif %}"></td>
+<td id="{% if ejeX >= 1 and ejeY < -1 %}activo{% endif %}"></td>
+</tr>
+
+</table>
+
+<br>
+
+<!-- volver -->
+<a href="/">
+    <button>Volver</button>
+</a>
+
+<br><br>
+
+<!-- ir a flechas -->
+<a href="/flechas">
+    <button>Ir a flechas</button>
+</a>
+
+</body>
+
+</html>

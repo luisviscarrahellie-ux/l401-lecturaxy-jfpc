@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="2">
+</head>
+<body>
+
+<h1>Vista con Flechas</h1>
+
+<p>X = {{ ejeX }}</p>
+<p>Y = {{ ejeY }}</p>
+
+<h2>
+{% if ejeX > 0 %}
+    →
+{% elif ejeX < 0 %}
+    ←
+{% elif ejeY > 0 %}
+    ↑
+{% elif ejeY < 0 %}
+    ↓
+{% else %}
+    •
+{% endif %}
+</h2>
+
+<br>
+
+<a href="/">
+    <button>Volver</button>
+</a>
+
+</body>
+</html>
